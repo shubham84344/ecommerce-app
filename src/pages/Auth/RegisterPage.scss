@@ -1,0 +1,32 @@
+
+.auth-container {
+  max-width: 360px;
+  margin: 70px auto;
+  padding: 28px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px #eee;
+  background: #fff;
+  h2 {
+    color: #FFA611;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .error-msg {
+    color: #FF8964;
+    margin-bottom: 12px;
+  }
+  .or-divider {
+    text-align: center;
+    margin: 18px 0;
+    color: #888;
+  }
+  .redirect-link {
+    text-align: center;
+    margin-top: 18px;
+    color: #059BE5;
+    a {
+      color: #F6820D;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.input-group {
+    margin-bottom: 20px;
+    label {
+      color: #FFA611;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: block;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1.5px solid #F6820D;
+      font-size: 1rem;
+      margin-top: 6px;
+      background: #fff;
+      &:focus {
+        border-color: #059BE5;
+        outline: none;
+      }
+    }
+  }
+  
