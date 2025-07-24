@@ -1,32 +1,124 @@
+.simple-register-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+}
 
-.auth-container {
-  max-width: 360px;
-  margin: 70px auto;
-  padding: 28px;
-  border-radius: 10px;
-  box-shadow: 0 8px 32px #eee;
+.simple-register-card {
   background: #fff;
+  border-radius: 7px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 370px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  text-align: center;
+
   h2 {
-    color: #FFA611;
-    margin-bottom: 24px;
-    text-align: center;
+    color: #222;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
-  .error-msg {
-    color: #FF8964;
-    margin-bottom: 12px;
-  }
-  .or-divider {
-    text-align: center;
-    margin: 18px 0;
+  .subtitle {
     color: #888;
+    font-size: 1rem;
+    margin-bottom: 26px;
   }
-  .redirect-link {
-    text-align: center;
-    margin-top: 18px;
-    color: #059BE5;
-    a {
-      color: #F6820D;
-      text-decoration: underline;
+}
+
+.register-form {
+  margin-bottom: 17px;
+  .error-msg {
+    color: #bb2222;
+    background: #f9ebea;
+    font-size: 14px;
+    margin: 8px 0 14px 0;
+    border-radius: 6px;
+    border-left: 2px solid #bb2222;
+    padding: 8px 0 8px 10px;
+    text-align: left;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 15px 0 15px 0;
+  color: #bbb;
+  font-size: 13px;
+  font-weight: 500;
+  &::before, &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #eee;
+  }
+  &::before { margin-right: 10px; }
+  &::after { margin-left: 10px; }
+  span { opacity: 0.8; }
+}
+
+.login-link {
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.96rem;
+  a {
+    color: #3498db;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 4px;
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.button {
+  width: 100%;
+  margin-bottom: 11px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: none;
+  padding: 11px 0;
+  border: none;
+  background: #3498db;
+  color: #fff;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: #217dbb;
+  }
+  &:disabled {
+    background: #dae7f5;
+    color: #b3b3b3;
+  }
+
+  &[variant="outline"] {
+    background: #fff;
+    border: 1px solid #dadde1;
+    color: #323232;
+    &:hover {
+      background: #f4f4f4;
     }
   }
+
+  .google-icon {
+    margin-right: 10px !important;
+    font-size: 1.1em;
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: 600px) {
+  .simple-register-card {
+    padding: 1.2rem 0.8rem 1rem 0.8rem;
+    max-width: 100%;
+    border-radius: 0.5rem;
+    h2 { font-size: 1.22rem; }
+    .subtitle { font-size: 0.96rem; }
+  }
+  .simple-register-bg { padding: 0; }
 }
