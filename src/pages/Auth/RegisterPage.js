@@ -41,11 +41,12 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="simple-register-bg">
-      <div className="simple-register-card">
-        <h2>Create Account</h2>
-        <p className="subtitle">Get started with your account</p>
-        <form onSubmit={handleRegister} className="register-form">
+    <div className="register-root">
+      <div className="register-page">
+      <div className="main-heading">E Commerce Website</div>
+        <form className="register-form" onSubmit={handleRegister}>
+          <div className="register-title">Create Account</div>
+          <p className="register-subtitle">Get started with your account</p>
           <Input
             label="Email"
             type="email"
@@ -61,24 +62,27 @@ export default function RegisterPage() {
             required
           />
           {err && <div className="error-msg">{err}</div>}
-          <Button disabled={loading} fullWidth>
+          <Button type="submit" disabled={loading}>
             {loading ? "Creating account..." : "Register"}
           </Button>
+
+          <div className="register-separator"><span>or</span></div>
+
+          <button
+            type="button"
+            className="google-btn"
+            onClick={handleGoogle}
+            disabled={loading}
+          >
+            <FcGoogle className="google-icon" />
+            Continue with Google
+          </button>
+
+          <div className="register-login-prompt">
+            Already have an account?
+            <Link to="/login" className="login-link">Sign in</Link>
+          </div>
         </form>
-        <div className="divider">
-          <span>OR</span>
-        </div>
-        <Button
-          variant="outline"
-          onClick={handleGoogle}
-          disabled={loading}
-          fullWidth
-        >
-          <FcGoogle className="google-icon" /> Continue with Google
-        </Button>
-        <div className="login-link">
-          Already have an account? <Link to="/login">Sign in</Link>
-        </div>
       </div>
     </div>
   );

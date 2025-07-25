@@ -1,117 +1,55 @@
-.input-group {
-  margin: 0 auto 1.5rem auto;             // Center group
-  width: 100%;
-  max-width: 350px;                       // Set max width for desktop
-  text-align: left;
+.custom-input-wrapper {
+  width: 300px;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 
-  .input-label {
-    display: block;
-    margin-bottom: 0.5rem;
+  .custom-input-label {
+    margin-bottom: 0.3rem;
     font-size: 1rem;
+    color: #222;
     font-weight: 500;
-    color: #334155;
-
-    .required-asterisk {
-      color: #ef4444;
-      margin-left: 0.25rem;
-    }
   }
 
-  .input-wrapper {
+  .custom-input-field {
     position: relative;
-  }
-
-  .input-field {
-    width: 100%;
-    // padding: 0 40px 0 12px;                // Right padding for eye, left for content
-    height: 42px;
-    font-size: 1rem;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.375rem;
-    background: #fff;
-    color: #1e293b;
-    transition: border-color 0.2s, box-shadow 0.2s;
-
-    &:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12);
-    }
-
-    &:disabled {
-      background-color: #f8fafc;
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
-
-    &.error {
-      border-color: #ef4444;
-      &:focus {
-        box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.14);
-      }
-    }
-  }
-
-  .password-toggle {
-    position: absolute;
-    right: 0.7rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #64748b;
-    cursor: pointer;
-    padding: 0.2rem 0.4rem;
     display: flex;
     align-items: center;
-    transition: color 0.2s;
-    font-size: 1.05rem;
 
-    &:hover,
-    &:focus {
-      color: #3b82f6;
-      outline: none;
-    }
+    .custom-input {
+      width: 100%;
+      padding: 0.7rem 2.2rem 0.7rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box;
 
-    svg {
-      width: 1.2em;
-      height: 1.2em;
-    }
-  }
+      &:focus {
+        outline: none;
+      }
 
-  .input-error {
-    margin-top: 0.48rem;
-    font-size: 0.84rem;
-    color: #ef4444;
-  }
-}
-
-// ----- Responsive -----
-@media (max-width: 600px) {
-  .input-group {
-    max-width: 100%;
-    margin-bottom: 1.1rem;
-    // padding: 0 2vw; // Slight horizontal margin on mobile
-
-    .input-label {
-      font-size: 0.98rem;
-    }
-    .input-field {
-      font-size: 0.96rem;
-      height: 38px;
-      padding-right: 36px;
-      padding-left: 8px;
-    }
-    .input-error {
-      font-size: 0.76rem;
-    }
-    .password-toggle {
-      right: 0.2rem;
-      font-size: 0.98rem;
-      svg {
-        width: 1em;
-        height: 1em;
+      &.input-error {
+        border: 2px solid #ef2626;
       }
     }
+
+    .custom-input-icon {
+      position: absolute;
+      right: 15px;
+      top: 55%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+      font-size: 1.2rem;
+
+    }
+  }
+
+  .custom-input-error {
+    color: #ef2626;
+    font-size: 0.93rem;
+    margin-top: 0.25rem;
+    min-height: 18px;
   }
 }

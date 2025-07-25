@@ -1,124 +1,169 @@
-.simple-register-bg {
+.register-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: 100vh;
-  width: 100vw;
-  background: #f9f9f9;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 0 0.75rem;
-}
+  background: linear-gradient(to right, #f8fafc, #e2e8f0);
 
-.simple-register-card {
-  background: #fff;
-  border-radius: 7px;
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  max-width: 370px;
-  width: 100%;
-  border: 1px solid #e0e0e0;
-  box-shadow: none;
-  text-align: center;
-
-  h2 {
-    color: #222;
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .subtitle {
-    color: #888;
-    font-size: 1rem;
-    margin-bottom: 26px;
-  }
-}
-
-.register-form {
-  margin-bottom: 17px;
-  .error-msg {
-    color: #bb2222;
-    background: #f9ebea;
-    font-size: 14px;
-    margin: 8px 0 14px 0;
-    border-radius: 6px;
-    border-left: 2px solid #bb2222;
-    padding: 8px 0 8px 10px;
-    text-align: left;
-  }
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  margin: 15px 0 15px 0;
-  color: #bbb;
-  font-size: 13px;
-  font-weight: 500;
-  &::before, &::after {
-    content: "";
-    flex: 1;
-    border-bottom: 1px solid #eee;
-  }
-  &::before { margin-right: 10px; }
-  &::after { margin-left: 10px; }
-  span { opacity: 0.8; }
-}
-
-.login-link {
-  margin-top: 15px;
-  color: #666;
-  font-size: 0.96rem;
-  a {
-    color: #3498db;
-    font-weight: 500;
-    text-decoration: none;
-    margin-left: 4px;
-    &:hover { text-decoration: underline; }
-  }
-}
-
-.button {
-  width: 100%;
-  margin-bottom: 11px;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  box-shadow: none;
-  padding: 11px 0;
-  border: none;
-  background: #3498db;
-  color: #fff;
-  cursor: pointer;
-
-  &:hover:not(:disabled) {
-    background: #217dbb;
-  }
-  &:disabled {
-    background: #dae7f5;
-    color: #b3b3b3;
-  }
-
-  &[variant="outline"] {
-    background: #fff;
-    border: 1px solid #dadde1;
-    color: #323232;
-    &:hover {
-      background: #f4f4f4;
+  .main-heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 42px 0 24px 0;
+    color: #111827;
+    @media (max-width: 480px) {
+      font-size: 1.3rem;
+      margin: 24px 0 14px 0;
     }
   }
 
-  .google-icon {
-    margin-right: 10px !important;
-    font-size: 1.1em;
-    vertical-align: middle;
-  }
-}
+  .register-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
 
-@media (max-width: 600px) {
-  .simple-register-card {
-    padding: 1.2rem 0.8rem 1rem 0.8rem;
-    max-width: 100%;
-    border-radius: 0.5rem;
-    h2 { font-size: 1.22rem; }
-    .subtitle { font-size: 0.96rem; }
+    .register-form {
+      background: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10);
+      width: 100%;
+      max-width: 350px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .register-title {
+        margin-bottom: 0.9rem;
+        text-align: center;
+        font-weight: 700;
+        font-size: 25px;
+      }
+
+      .register-subtitle {
+        color: #888;
+        font-size: 1rem;
+        margin-bottom: 22px;
+      }
+
+      .error-msg {
+        color: #bb2222;
+        background: #f9ebea;
+        font-size: 14px;
+        margin: 5px 0 14px 0;
+        border-radius: 6px;
+        border-left: 2px solid #bb2222;
+        padding: 8px 0 8px 10px;
+        text-align: left;
+        width: 100%;
+      }
+
+      .register-separator {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 10px 0 10px 0;
+        color: #aaa;
+        font-size: 0.97rem;
+        span {
+          margin: 0 12px;
+          position: relative;
+          z-index: 1;
+          background: #fff;
+          padding: 0 7px;
+        }
+        &::before,
+        &::after {
+          content: '';
+          flex: 1;
+          height: 1px;
+          background: #e5e7eb;
+          display: block;
+        }
+      }
+
+      .google-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 16px auto;
+        padding: 0.65rem 0;
+        gap: 10px;
+        border: 1px solid #e5e7eb;
+        border-radius: 20px;
+        background: #fff;
+        color: #2d3748;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        transition: background .2s, border .2s;
+        .google-icon {
+          font-size: 1.3rem;
+        }
+        &:hover {
+          background: #f3f4f6;
+          border-color: #aaa;
+        }
+        &:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+      }
+
+      .register-login-prompt {
+        margin-top: 5px;
+        font-size: 0.97rem;
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+        color: #6b7280;
+        .login-link {
+          color: #007bff;
+          text-decoration: underline;
+          font-weight: 500;
+          cursor: pointer;
+          &:hover {
+            color: #0056b3;
+          }
+        }
+      }
+    }
   }
-  .simple-register-bg { padding: 0; }
+
+  // Responsive: stack layout for mobile/tablet
+  @media (max-width: 900px) {
+    flex-direction: column;
+    .register-left,
+    .register-page {
+      justify-content: center;
+      padding: 0;
+      width: 100%;
+      max-width: none;
+    }
+    .register-left {
+      margin-bottom: 14px;
+    }
+  }
+  @media (max-width: 600px) {
+    padding: 0 6px;
+    flex-direction: column;
+    .main-heading {
+      padding: 28px 0 4px 0;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .register-page .register-form {
+      padding: 1.2rem 1rem;
+      max-width: 98vw;
+    }
+  }
 }

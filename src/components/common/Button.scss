@@ -1,35 +1,17 @@
-$primary: #FFA611;
-$blue: #059BE5;
-$deepOrange: #F6820D;
-
-.btn {
-  padding: 10px 24px;
-  border-radius: 4px;
+.custom-btn {
+  width: 150px;
+  max-width: 100%;
+  padding: 0.7rem;
   border: none;
-  font-weight: 500;
-  font-size: 1rem;
+  border-radius: 20px;
+  background: #007bff;
   color: #fff;
-  background: $primary;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  margin: 10px 0;
-  &.google {
-    background: $blue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      margin-right: 10px;
-      font-size: 1.2em;
-      vertical-align: middle;
-      background: #fff;
-      border-radius: 50%;
-    }
-  }
-  &.danger {
-    background: #FF8964;
-  }
+  transition: background 0.2s;
+
   &:hover {
-    background: $deepOrange;
-    transition: 0.2s;
+    background: #0056b3;
   }
 }

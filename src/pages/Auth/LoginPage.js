@@ -1,88 +1,72 @@
-import React, { useState } from "react";
-import Input from "../../components/common/Input";
-import Button from "../../components/common/Button";
-import { login, googleSignIn } from "../../firebase/authService";
-import { useNavigate, Link } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import "./LoginPage.scss";
+import React, { useState } from 'react';
+import './LoginPage.scss';
+import Input from '../../components/common/Input';
+import Button from '../../components/common/Button';
+import { FcGoogle } from 'react-icons/fc'; // Google icon
 
-export default function LoginPage() {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [err, setErr] = useState("");
-  const [loading, setLoading] = useState(false);
+function LoginPage() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    setErr("");
-    setLoading(true);
-    try {
-      await login(email, password);
-      navigate("/");
-    } catch (error) {
-      setErr(error.message);
-    } finally {
-      setLoading(false);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
     }
   };
 
-  const handleGoogle = async () => {
-    setErr("");
-    setLoading(true);
-    try {
-      await googleSignIn();
-      navigate("/");
-    } catch (error) {
-      setErr(error.message);
-    } finally {
-      setLoading(false);
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Your login logic here
+  };
+
+  const handleGoogleLogin = () => {
+    alert("Google Login (add your logic here)");
   };
 
   return (
-    <div className="simple-login-bg">
-      <div className="simple-login-card">
-        <div className="login-header">
-          <h2>Welcome Back</h2>
-          <p className="subtitle">Sign in to your dashboard</p>
-        </div>
-        <form onSubmit={handleLogin} className="login-form">
-          <Input
-            label="Email"
-            type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-          <Input
-            label="Password"
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-          <div className="forgot-link">
-            <Link to="/forgot">Forgot Password?</Link>
-          </div>
-          {err && <div className="error-msg">{err}</div>}
-          <Button disabled={loading} fullWidth variant="primary">
-            {loading ? (<span className="spinner"></span>) : "Login"}
-          </Button>
-        </form>
-        <div className="divider"><span>OR</span></div>
-        <Button
-          variant="outline"
-          onClick={handleGoogle}
-          disabled={loading}
-          fullWidth
+    <div className="login-page">
+      <div className="main-heading">E Commerce Website</div>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className='login-title'>Login</div>
+        <Input
+          label="Email"
+          type="text"
+          name="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={handleChange}
+        />
+        <Input
+          label="Password"
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={handleChange}
+        />
+        <Button type="submit">Login</Button>
+
+        <div className="login-separator"><span>or</span></div>
+
+        <button
+          type="button"
+          className="google-btn"
+          onClick={handleGoogleLogin}
         >
-          <FcGoogle className="google-icon" /> Continue with Google
-        </Button>
-        <div className="signup-link">
-          New user? <Link to="/register">Create account</Link>
+          <FcGoogle className="google-icon" />
+          Login with Google
+        </button>
+
+        <div className="login-signup-prompt">
+          <span>New?</span>
+          <a href="/register" className="signup-link">Want to sign up?</a>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
+
+export default LoginPage;

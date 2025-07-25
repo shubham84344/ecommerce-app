@@ -1,60 +1,54 @@
-import React, { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
-import "./Input.scss";
+import React, { useState } from 'react';
+import './Input.scss';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-export default function Input({
-  label,
+const Input = ({
+  label = "",
   type = "text",
+  placeholder = "",
   value,
   onChange,
-  required = false,
-  disabled = false,
-  placeholder = "",
   error = "",
-  className = "",
-  ...props
-}) {
+  name = "",
+  required = false,
+  className = ""
+}) => {
   const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
-
-  // Show/hide password logic
-  const inputType = type === "password" && showPassword ? "text" : type;
+  const isPassword = type === "password";
+  const inputType = isPassword && showPassword ? "text" : type;
+  const inputId = name || label.replace(/\s+/g, '').toLowerCase();
 
   return (
-    <div className={`input-group ${className}`}>
+    <div className="custom-input-wrapper">
       {label && (
-        <label className="input-label">
+        <label className="custom-input-label" htmlFor={inputId}>
           {label}
-          {required && <span className="required-asterisk">*</span>}
         </label>
       )}
-      <div className="input-wrapper">
+      <div className="custom-input-field">
         <input
+          className={`custom-input ${className} ${error ? "input-error" : ""}`}
+          id={inputId}
           type={inputType}
+          placeholder={placeholder}
           value={value}
           onChange={onChange}
+          name={name}
           required={required}
-          disabled={disabled}
-          placeholder={placeholder}
-          className={`input-field${error ? " error" : ""}`}
-          {...props}
+          autoComplete={isPassword ? "current-password" : undefined}
         />
-        {type === "password" && (
-          <button
-            type="button"
-            className="password-toggle"
-            onClick={togglePasswordVisibility}
-            aria-label={showPassword ? "Hide password" : "Show password"}
-            tabIndex={0}
+        {isPassword && (
+          <span
+            className="custom-input-icon"
+            onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </button>
+          </span>
         )}
       </div>
-      {error && <div className="input-error">{error}</div>}
+      {error && <div className="custom-input-error">{error}</div>}
     </div>
   );
-}
+};
+
+export default Input;
